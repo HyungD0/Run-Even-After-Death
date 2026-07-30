@@ -6,9 +6,6 @@ public class PlayerMovement : MonoBehaviour
     [Header("움직임 세팅")]
     [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private float jumpForce = 5f;
-
-    [Header("땅 체크")]
-    [SerializeField] private Transform groundCheck;
    
     [SerializeField] private float groundCheckRadius = 0.2f;
 
@@ -54,24 +51,8 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGround = true;
-            rb.gravityScale = 1f;
+           
         }
         
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("ladder"))
-        {
-            isGround = false;
-            rb.gravityScale = 0f;
-            rb.AddForce(Vector2.up * 3, ForceMode2D.Force);
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        isGround = true;
-        rb.gravityScale = 1f;
     }
 }

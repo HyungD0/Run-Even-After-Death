@@ -11,13 +11,13 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("obstacle"))
         {
             Die();
-            Respawn();
         }
     }
-
+    [ContextMenu("Á×À½ Å×½ºÆ®")]
     private void Die()
     {
         Instantiate(DeadPrefab, transform.position, Quaternion.identity);
+        Respawn();
     }
 
     private void Respawn()
