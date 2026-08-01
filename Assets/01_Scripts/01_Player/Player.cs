@@ -8,12 +8,24 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerDieSelfActions
     [SerializeField] private Transform resetPoint;
 
     private InputSystem_Actions inputActions;
+
+    private bool isDiePressed = false;
+    [Header("¿¬ÞÝ ¼³Á¤")]
+    [SerializeField] private float repeatRate = 0.1f;
     #endregion
 
     private void Awake()
     {
         
         inputActions = new InputSystem_Actions();
+    }
+
+    private void Update()
+    {
+        if (isDiePressed)
+        {
+            Die();
+        }
     }
 
     private void OnEnable()
@@ -25,13 +37,20 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerDieSelfActions
     private void OnDisable()
     {
         inputActions.PlayerDieSelf.Disable();
+        CancelInvoke(nameof(Die));
     }
 
     public void OnDie(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.started)
         {
-            Die();
+            CancelInvoke(nameof(Die));
+
+            InvokeRepeating(nameof(Die), 0f, repeatRate);
+        }
+        else if (context.canceled)
+        {
+            CancelInvoke(nameof(Die));
         }
     }
 

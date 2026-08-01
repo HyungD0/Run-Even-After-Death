@@ -1097,7 +1097,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""680a7cdf-ce44-4511-8d1d-4016f97298eb"",
                     ""path"": ""<Keyboard>/k"",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold(duration=0.1,pressPoint=0.1)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Die"",
