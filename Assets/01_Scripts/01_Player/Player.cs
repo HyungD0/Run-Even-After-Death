@@ -65,7 +65,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerDieSelfActions
     [ContextMenu("Á×À½ Å×½ºÆ®")]
     private void Die()
     {
-        Instantiate(DeadPrefab, transform.position, Quaternion.identity);
+        Instantiate(DeadPrefab, transform.position - new Vector3(0, 1, 0), Quaternion.identity);
         Respawn();
     }
 
