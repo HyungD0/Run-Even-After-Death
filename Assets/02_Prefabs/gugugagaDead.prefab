@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8218460575026430842}
   m_Layer: 0
   m_Name: gugugagaDead
-  m_TagString: Ground
+  m_TagString: corpse
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
